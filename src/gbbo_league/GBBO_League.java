@@ -40,6 +40,40 @@ Points awarded at the end of the final episode of the series:
     The other two finalists chosen after episode one and before episode two = 2 points each
     Winner of the final episode, chosen after episode nine = 4 points
     No technical round or elimination nominations for the final episode
+        
+        
+        csv create, write, read
+        
+        object creation / use
+        
+        scanner - interactions
+        
+        import static java.lang.System.in;
+import java.util.Scanner;
+
+public class UserInputMethod {
+    
+            public static void main(String[] args) {
+
+        String userName = askUser("What is your name?");
+    }
+    
+    static String askUser (String prompt) {
+        
+    //ask the user using prompt. Return what the user enters
+        
+    Scanner myScanner = new Scanner (System.in);
+    System.out.println(prompt);
+    try{
+        String userInput = myScanner.nextLine();
+    return userInput; // returns what the user entered
+    } catch (Exception e) {
+    return ""; // the method has to return something
+    }
+    }
+    
+    
+}
 */
         
     }
