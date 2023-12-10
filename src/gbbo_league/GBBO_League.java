@@ -15,7 +15,7 @@ public class GBBO_League {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-/*  Based on points. Each week, players choose three contestants (their fantasy team)
+/*  Based on points. Each week, players choose three contestants (their fantasy team
 Data and history stored in csv “Fantasy GBBO.csv”
         Players each week enter their predictions, actual results provided in csv file each week (player info and contest info)
         Players should have: 
