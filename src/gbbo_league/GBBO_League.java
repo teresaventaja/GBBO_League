@@ -10,10 +10,23 @@ package gbbo_league;
  */
 public class GBBO_League {
     
-        int points = 0;
-        String best_baker_nomination;
-        String baker_to_leave_nomination;
-        String best_baker_result;
+    int points = 0;
+    String player_name;
+    int week;
+    String best_baker_nomination;
+    String baker_to_leave_nomination;
+    String technical_winner_nomination;
+    String best_baker_result;
+    String baker_to_leave_result;
+    String technical_winner_result;
+    String overall_winner_nomination;
+    String finalist1_nomination;
+    String finalist2_nomination;
+    String overall_winner_result;
+    String finalist1_result;
+    String finalist2_result;
+    String final_episode_winner_nomination;
+    String final_episode_winner_result;
         
         public boolean check_best_baker(String best_baker_result) {
         return (best_baker_nomination == best_baker_result);
@@ -32,8 +45,12 @@ public class GBBO_League {
         if (check_fail_best_baker(baker_to_leave_result)) {
         } return points -= 1;
         }
+       /*
+            Correct weekly nomination of baker to leave = 3 points
+    If your nominated baker to leave is the Best Baker 1 point will be deducted from your total.
+    Correct nomination of the winner of that week’s technical round = 2 points
+        */ 
         
-
         
 }
 
