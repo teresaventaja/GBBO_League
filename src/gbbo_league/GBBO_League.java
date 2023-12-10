@@ -9,12 +9,40 @@ package gbbo_league;
  * @author User
  */
 public class GBBO_League {
+    
+        int points = 0;
+        String best_baker_nomination;
+        String baker_to_leave_nomination;
+        String best_baker_result;
+        
+        public boolean check_best_baker(String best_baker_result) {
+        return (best_baker_nomination == best_baker_result);
+        }
+        
+        public int best_baker_points(String best_baker_result) {
+        if (check_best_baker(best_baker_result)) {
+        } return points += 4;
+        }
 
-    /**
-     * @param args the command line arguments
-     */
+        public boolean check_fail_best_baker(String baker_to_leave_result) {
+        return (best_baker_nomination == baker_to_leave_result);
+        }
+        
+        public int fail_best_baker_points(String baker_to_leave_result) {
+        if (check_fail_best_baker(baker_to_leave_result)) {
+        } return points -= 1;
+        }
+        
+
+        
+}
+
+
+       
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        
+
 /*  Based on points. Each week, players choose three contestants - their fantasy team
 Data and history stored in csv “Fantasy GBBO.csv”
         Players each week enter their predictions, actual results provided in csv file each week (player info and contest info)
@@ -77,5 +105,6 @@ public class UserInputMethod {
 */
         
     }
+
     
-}
+
