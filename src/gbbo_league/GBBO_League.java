@@ -15,12 +15,16 @@ public class GBBO_League {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-/*  Based on points. Each week, players choose three contestants (their fantasy team
+/*  Based on points. Each week, players choose three contestants - their fantasy team
 Data and history stored in csv “Fantasy GBBO.csv”
         Players each week enter their predictions, actual results provided in csv file each week (player info and contest info)
-        Players should have: 
-        - see a list of players and their cumulative point so far. 
-        - See their own history of predictions and point scoring
+        26 Sept, 3, 10, 17, 24, 31 Oct, 7, 14, 21, 28 Nov (2 episodes)
+        Players options:
+        - Select week
+        - Enter weekly prediction (before Tuesday)
+        - See weekly results (After Wednesday)- can be put into "see all results"
+                - see a list of players and their cumulative point so far
+                - See their own history of predictions and point scoring
         
         Weekly points awarded up to and including episode nine:
         SELECTIONS: BEST BAKER, BAKER TO LEAVE, WINNER OF THAT WEEK'S TECHNICAL ROUND
