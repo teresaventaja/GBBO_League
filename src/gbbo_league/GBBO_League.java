@@ -4,6 +4,8 @@
  */
 package gbbo_league;
 
+import java.util.Scanner;
+
 /**
  *
  * @author User
@@ -108,16 +110,37 @@ public class GBBO_League {
         if (check_final_episode_winner(final_episode_winner_result)) {
         } return points += 4;
         }
-}
-
-    public static void main(String[] args) {
         
-            String player_name = askUser("Introduce your name");
-            String week = askUser("Introduce the game's week");
-            String best_baker_nomination = askUser("Nominate Best Baker");
-            String baker_to_leave_nomination = askUser("Nominate Baker to Leave");
-            String technical_winner_nomination = askUser("Nominate winner of the technical round");
- 
+        
+        public String askUser (String prompt) {
+        
+    //ask the user using prompt. Return what the user enters
+        
+    Scanner myScanner = new Scanner (System.in);
+    System.out.println(prompt);
+    try{
+        String userInput = myScanner.nextLine();
+    return userInput; // returns what the user entered
+    } catch (Exception e) {
+    return ""; // the method has to return something
+    }
+    }
+        
+          public static void main(String[] args) {
+       
+get_user_input obj = new get_user_input();
+String player_name = obj.askUser("Introduce your name");
+String week = obj.askUser("Introduce the game's week");
+String best_baker_nomination = obj.askUser("Nominate Best Baker");
+String baker_to_leave_nomination = obj.askUser("Nominate Baker to Leave");
+String technical_winner_nomination = obj.askUser("Nominate winner of the technical round");
+
+System.out.println(player_name);
+
+//weeks_1_to_9_nominations week1_nominations = new weeks_1_to_9_nomination();
+        
+    }  
+        
 
 /*  Based on points. Each week, players choose three contestants - their fantasy team
 Data and history stored in csv “Fantasy GBBO.csv”
@@ -163,9 +186,56 @@ public class UserInputMethod {
     
     
 }
-*/
+*/      
+}
+
+  
+/*  Based on points. Each week, players choose three contestants - their fantasy team
+Data and history stored in csv “Fantasy GBBO.csv”
+        Players each week enter their predictions, actual results provided in csv file each week (player info and contest info)
+        26 Sept, 3, 10, 17, 24, 31 Oct, 7, 14, 21, 28 Nov (2 episodes)
+        Players options:
+        - Select week
+        - Enter weekly prediction (before Tuesday)
+        - See weekly results (After Wednesday)- can be put into "see all results"
+                - see a list of players and their cumulative point so far
+                - See their own history of predictions and point scoring
         
+
+        csv create, write, read
+        
+        object creation / use
+        
+        scanner - interactions
+        
+        import static java.lang.System.in;
+import java.util.Scanner;
+
+public class UserInputMethod {
+    
+            public static void main(String[] args) {
+
+        String userName = askUser("What is your name?");
     }
+    
+    static String askUser (String prompt) {
+        
+    //ask the user using prompt. Return what the user enters
+        
+    Scanner myScanner = new Scanner (System.in);
+    System.out.println(prompt);
+    try{
+        String userInput = myScanner.nextLine();
+    return userInput; // returns what the user entered
+    } catch (Exception e) {
+    return ""; // the method has to return something
+    }
+    }
+    
+    
+}
+*/
+       
 
     
 
