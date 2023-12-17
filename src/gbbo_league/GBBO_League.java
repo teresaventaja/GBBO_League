@@ -72,13 +72,52 @@ public class GBBO_League {
         if (check_technical_winner(technical_winner_result)) {
         } return points += 2;
         }
+        
+        public boolean check_overall_winner(String overall_winner_result) {
+        return (overall_winner_nomination == overall_winner_result);
+        }
+        
+        public int overall_winner_points(String overall_winner_result) {
+        if (check_overall_winner(overall_winner_result)) {
+        } return points += 7;
+        }
+
+        public boolean check_finalist1(String finalist1_result) {
+        return (finalist1_nomination == finalist1_result);
+        }
+        
+        public int finalist1_points(String finalist1_result) {
+        if (check_finalist1(finalist1_result)) {
+        } return points += 2;
+        }
+        
+        public boolean check_finalist2(String finalist2_result) {
+        return (finalist2_nomination == finalist2_result);
+        }
+        
+        public int finalist2_points(String finalist2_result) {
+        if (check_finalist2(finalist2_result)) {
+        } return points += 2;
+        }
+        
+        public boolean check_final_episode_winner(String final_episode_winner_result) {
+        return (final_episode_winner_nomination == final_episode_winner_result);
+        }
+        
+        public int final_episode_winner_points(String final_episode_winner_result) {
+        if (check_final_episode_winner(final_episode_winner_result)) {
+        } return points += 4;
+        }
 }
 
-
-       
     public static void main(String[] args) {
         
-        
+            String player_name = askUser("Introduce your name");
+            String week = askUser("Introduce the game's week");
+            String best_baker_nomination = askUser("Nominate Best Baker");
+            String baker_to_leave_nomination = askUser("Nominate Baker to Leave");
+            String technical_winner_nomination = askUser("Nominate winner of the technical round");
+ 
 
 /*  Based on points. Each week, players choose three contestants - their fantasy team
 Data and history stored in csv “Fantasy GBBO.csv”
@@ -91,22 +130,7 @@ Data and history stored in csv “Fantasy GBBO.csv”
                 - see a list of players and their cumulative point so far
                 - See their own history of predictions and point scoring
         
-        Weekly points awarded up to and including episode nine:
-        SELECTIONS: BEST BAKER, BAKER TO LEAVE, WINNER OF THAT WEEK'S TECHNICAL ROUND
-    Correct nomination of the Best Baker = 4 points
-    If your nominated Best Baker is eliminated, then 1 point will be deducted from your total
-    Correct weekly nomination of baker to leave = 3 points
-    If your nominated baker to leave is the Best Baker 1 point will be deducted from your total.
-    Correct nomination of the winner of that week’s technical round = 2 points
- 
-Points awarded at the end of the final episode of the series:
-        SELECTIONS: OVERALL WINNER, 2 FINALISTS, WINNER FINAL EPISODE
-    Overall winner chosen after episode one and before episode two = 7 points
-    The other two finalists chosen after episode one and before episode two = 2 points each
-    Winner of the final episode, chosen after episode nine = 4 points
-    No technical round or elimination nominations for the final episode
-        
-        
+
         csv create, write, read
         
         object creation / use
