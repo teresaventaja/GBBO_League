@@ -45,13 +45,33 @@ public class GBBO_League {
         if (check_fail_best_baker(baker_to_leave_result)) {
         } return points -= 1;
         }
-       /*
-            Correct weekly nomination of baker to leave = 3 points
-    If your nominated baker to leave is the Best Baker 1 point will be deducted from your total.
-    Correct nomination of the winner of that week’s technical round = 2 points
-        */ 
+ 
+        public boolean check_baker_to_leave(String baker_to_leave_result) {
+        return (baker_to_leave_nomination == baker_to_leave_result);
+        }
         
+        public int baker_to_leave_points(String baker_to_leave_result) {
+        if (check_baker_to_leave(baker_to_leave_result)) {
+        } return points += 3;
+        }
+
+        public boolean check_fail_baker_to_leave(String best_baker_result) {
+        return (baker_to_leave_nomination == best_baker_result);
+        }
         
+        public int fail_baker_to_leave_points(String best_baker_result) {
+        if (check_fail_baker_to_leave(best_baker_result)) {
+        } return points -= 1;
+        } 
+        
+        public boolean check_technical_winner(String technical_winner_result) {
+        return (technical_winner_nomination == technical_winner_result);
+        }
+        
+        public int technical_winner_points(String technical_winner_result) {
+        if (check_technical_winner(technical_winner_result)) {
+        } return points += 2;
+        }
 }
 
 
