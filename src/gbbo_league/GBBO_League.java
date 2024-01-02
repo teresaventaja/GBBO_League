@@ -135,7 +135,10 @@ String best_baker_nomination = obj.askUser("Nominate Best Baker");
 String baker_to_leave_nomination = obj.askUser("Nominate Baker to Leave");
 String technical_winner_nomination = obj.askUser("Nominate winner of the technical round");
 
-weeks_1_to_9_nominations player1_w19n = new weeks_1_to_9_nominations();
+
+//include validation if we are between week 1-9
+weeks_1_to_9_nominations player1_w19n = new weeks_1_to_9_nominations(player_name, week, best_baker_nomination, baker_to_leave_nomination, technical_winner_nomination);
+// create similar for weeks 10, 11
 
 System.out.println(player_name);
 
