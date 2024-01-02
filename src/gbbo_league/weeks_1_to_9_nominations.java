@@ -11,12 +11,12 @@ package gbbo_league;
 public class weeks_1_to_9_nominations {
 
     String player_name;
-    int week;
+    String week;
     String best_baker_nomination;
     String baker_to_leave_nomination;
     String technical_winner_nomination;
     
-        public weeks_1_to_9_nominations(String player_name, int week, String best_baker_nomination, String baker_to_leave_nomination, String technical_winner_nomination) {
+        public weeks_1_to_9_nominations(String player_name, String week, String best_baker_nomination, String baker_to_leave_nomination, String technical_winner_nomination) {
         
         this.player_name = player_name; 
         this.week = week; 
@@ -24,5 +24,10 @@ public class weeks_1_to_9_nominations {
         this.baker_to_leave_nomination = baker_to_leave_nomination;
         this.technical_winner_nomination = technical_winner_nomination;
     }
+
+    weeks_1_to_9_nominations() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+        
         
 }

@@ -14,7 +14,7 @@ public class GBBO_League {
     
     int points = 0;
     String player_name;
-    int week;
+    String week;
     String best_baker_nomination;
     String baker_to_leave_nomination;
     String technical_winner_nomination;
@@ -134,6 +134,8 @@ String week = obj.askUser("Introduce the game's week");
 String best_baker_nomination = obj.askUser("Nominate Best Baker");
 String baker_to_leave_nomination = obj.askUser("Nominate Baker to Leave");
 String technical_winner_nomination = obj.askUser("Nominate winner of the technical round");
+
+weeks_1_to_9_nominations player1_w19n = new weeks_1_to_9_nominations();
 
 System.out.println(player_name);
 
