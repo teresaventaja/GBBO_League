@@ -10,6 +10,9 @@ import java.util.Scanner;
  *
  * @author User
  */
+
+
+// I may need to delete, is included in  main
 public class get_user_input {
     
     public String askUser (String prompt) {
