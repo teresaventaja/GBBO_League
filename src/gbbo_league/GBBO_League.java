@@ -50,7 +50,10 @@ nominations = (player_name+","+week+","+""+","+""+","+""+final_winner_first_nomi
 }
 
 // create system to read results every week (one per week) and append points to the csv file
-
+/* try {
+            Scanner readAdvancedTrades = new Scanner(new FileReader("trades2.txt"));
+            String readCommaTrades = readAdvancedTrades.nextLine();
+*/
             try {
             BufferedWriter createCSV = new BufferedWriter(new FileWriter("Fantasy GBBO.csv", false));
             createCSV.write(nominations);
@@ -64,15 +67,6 @@ System.out.println("Your final points are " + points);
 
 //menu: a player should be able to see a list of all the players and their cumulative point total so far. 
 //a player should be able to see their own history of predictions and point scoring.
-/*
- try {
-            BufferedWriter advancedTextFile = new BufferedWriter(new FileWriter("trades2.txt", false));
-            advancedTextFile.write(dataInVariable);
-            advancedTextFile.close();
-            Scanner readAdvancedTrades = new Scanner(new FileReader("trades2.txt"));
-            String readCommaTrades = readAdvancedTrades.nextLine();
-            }
-*/
 
     }
 }
@@ -85,13 +79,8 @@ Data and history stored in csv “Fantasy GBBO.csv”
         Players options:
         - Select week
         - Enter weekly prediction (before Tuesday)
-        - See weekly results (After Wednesday)- can be put into "see all results"
-                - see a list of players and their cumulative point so far
-                - See their own history of predictions and point scoring
-        
 
-        csv create, write, read
-        
+      
 
 */      
 
