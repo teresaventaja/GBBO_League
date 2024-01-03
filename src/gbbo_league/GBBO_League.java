@@ -5,6 +5,11 @@
 package gbbo_league;
 
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -34,10 +39,31 @@ weeks_1_to_9_nominations player1_w19n = new weeks_1_to_9_nominations(player_name
 weeks_1_to_9_nominations player1_w2n = new weeks_1_to_9_nominations(player_name, final_winner_first_nomination, finalist1_nomination, finalist2_nomination);
 week_10_nominations player1_w10n = new week_10_nominations(player_name, final_winner_second_nomination);
 
+String nominations;
+
+if ((week == 1) || (week == 3) || (week == 4) || (week == 5) || (week == 6) || (week == 7) || (week == 8) || (week == 9)) {
+nominations = (player_name+","+week+","+best_baker_nomination+","+baker_to_leave_nomination+","+technical_winner_nomination);
+} else if (week == 2) {
+nominations = (player_name+","+week+","+""+","+""+","+""+final_winner_first_nomination+","+finalist1_nomination+","+finalist2_nomination);
+} else {
+nominations = (player_name+","+week+","+""+","+""+","+""+final_winner_first_nomination+","+finalist1_nomination+","+finalist2_nomination+","+final_winner_second_nomination);
+}
+
+// create system to read results every week (one per week) and append points to the csv file
+
+            try {
+            BufferedWriter createCSV = new BufferedWriter(new FileWriter("Fantasy GBBO.csv", false));
+            createCSV.write(nominations);
+            createCSV.close();
+            } catch (IOException ex) {
+            System.out.println(ex);
+            System.out.println("The .csv file may not be accessible");
+            }
 
 System.out.println("Your final points are " + points);
 
-
+//menu: a player should be able to see a list of all the players and their cumulative point total so far. 
+//a player should be able to see their own history of predictions and point scoring.
 /*
  try {
             BufferedWriter advancedTextFile = new BufferedWriter(new FileWriter("trades2.txt", false));
@@ -45,12 +71,6 @@ System.out.println("Your final points are " + points);
             advancedTextFile.close();
             Scanner readAdvancedTrades = new Scanner(new FileReader("trades2.txt"));
             String readCommaTrades = readAdvancedTrades.nextLine();
-            BufferedWriter createFile = new BufferedWriter(new FileWriter("trades.csv", false));
-            createFile.write(readCommaTrades);
-            createFile.close();
-            } catch (Exception t) {
-            System.out.println(t);
-            System.out.println("The overrode .txt file may not be accessible");
             }
 */
 
