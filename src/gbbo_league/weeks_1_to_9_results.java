@@ -11,20 +11,17 @@ package gbbo_league;
 public class weeks_1_to_9_results {
     
     String player_name;
-    String week;
+    int week;
     String best_baker_result;
     String baker_to_leave_result;
     String technical_winner_result;
     String best_baker_nomination;
     String baker_to_leave_nomination;
     String technical_winner_nomination;
-    String final_episode_winner_nomination;
-    String finalist1_nomination;
-    String finalist2_nomination;
     
-    //constructor for weekly results, for week 1-9
+    //constructor for weekly results, for weeks 1-9
     
-    public weeks_1_to_9_results(String week, String best_baker_result, String baker_to_leave_result, String technical_winner_result) {   
+    public weeks_1_to_9_results(int week, String best_baker_result, String baker_to_leave_result, String technical_winner_result) {   
         this.week = week; 
         this.best_baker_result = best_baker_result;
         this.baker_to_leave_result = baker_to_leave_result;
@@ -33,7 +30,7 @@ public class weeks_1_to_9_results {
     
     public int points;
     
-            public boolean check_best_baker(String best_baker_result) {
+        public boolean check_best_baker(String best_baker_result) {
         return (best_baker_nomination.equals(best_baker_result));
         }
         

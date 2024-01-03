@@ -28,4 +28,20 @@ public class get_user_input {
     return ""; // the method has to return something
     }
     }
+
+     public int askInt (String prompt) {
+        
+    //ask the user using prompt. Return what the user enters
+        
+    Scanner myScanner = new Scanner (System.in);
+    System.out.println(prompt);
+    try{
+        int userInput = myScanner.nextInt();
+    return userInput; // returns what the user entered
+    } catch (Exception e) {
+    return 0; // the method has to return something
+    }
+    }
+    
+   
 }

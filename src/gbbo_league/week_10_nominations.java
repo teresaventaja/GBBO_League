@@ -11,15 +11,14 @@ package gbbo_league;
 public class week_10_nominations {
 
     String player_name;
-    String week;
-    String final_episode_winner_nomination;
+    int week;
+    String final_winner_second_nomination;
     
-        public week_10_nominations(String player_name, String final_episode_winner_nomination) {
+        public week_10_nominations(String player_name, String final_winner_second_nomination) {
         
         this.player_name = player_name; 
-        week = "10";     
-        this.final_episode_winner_nomination = final_episode_winner_nomination;
-
+        week = 10;     
+        this.final_winner_second_nomination = final_winner_second_nomination;
     }
         
 }
