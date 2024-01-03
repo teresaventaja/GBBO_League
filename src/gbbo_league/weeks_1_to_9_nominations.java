@@ -15,7 +15,12 @@ public class weeks_1_to_9_nominations {
     String best_baker_nomination;
     String baker_to_leave_nomination;
     String technical_winner_nomination;
+    String final_episode_winner_nomination;
+    String finalist1_nomination;
+    String finalist2_nomination;
     
+    
+    //constructor for weekly nominations, for weeks 1-9
         public weeks_1_to_9_nominations(String player_name, String week, String best_baker_nomination, String baker_to_leave_nomination, String technical_winner_nomination) {
         
         this.player_name = player_name; 
@@ -24,7 +29,19 @@ public class weeks_1_to_9_nominations {
         this.baker_to_leave_nomination = baker_to_leave_nomination;
         this.technical_winner_nomination = technical_winner_nomination;
     }
-
+        //constructor for week 2
+        public weeks_1_to_9_nominations(String player_name, String final_episode_winner_nomination, String finalist1_nomination, String finalist2_nomination) {
+        
+        this.player_name = player_name; 
+        week = "2";  
+        this.final_episode_winner_nomination = final_episode_winner_nomination;
+        this.finalist1_nomination = finalist1_nomination;
+        this.finalist2_nomination = finalist2_nomination;
+    }
+      
+        
+        
+        
     weeks_1_to_9_nominations() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

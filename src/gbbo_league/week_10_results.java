@@ -10,17 +10,30 @@ package gbbo_league;
  */
 public class week_10_results {
     String player_name;
-    int week;
-    String overall_winner_result;
+    String week;
+   String final_episode_winner_result;
     String finalist1_result;
     String finalist2_result;
     
-        public week_10_results(String player_name, int week, String overall_winner_result, String finalist1_result, String finalist2_result, String final_episode_winner_result) {
+    
+    //constructor for week 10 results
+        public week_10_results(String player_name, String final_episode_winner_result) {
         
         this.player_name = player_name; 
-        this.week = week;     
-        this.overall_winner_result = overall_winner_result;
+        week = "10";     
+        this.final_episode_winner_result = final_episode_winner_result;
+
+    }
+        
+        //constructor for week 2 results
+        public week_10_results(String player_name, String final_episode_winner_result, String finalist1_result, String finalist2_result) {
+        
+        this.player_name = player_name; 
+        week = "2";  
+        this.final_episode_winner_result = final_episode_winner_result;
         this.finalist1_result = finalist1_result;
         this.finalist2_result = finalist2_result;
     }
+                        int points;
+        
 }
