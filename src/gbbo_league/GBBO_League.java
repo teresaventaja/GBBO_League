@@ -32,6 +32,9 @@ String best_baker_result = null;
 String baker_to_leave_result = null;
 String technical_winner_result = null;
 String nominations;
+ String           bbr = null;
+       String     blr= null;
+        String    twr = null;
 
 
 
@@ -76,7 +79,7 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
             System.out.println("The nominations file may not be accessible");
             }
             
-            //Read CSV with results
+            //Read file with results
             String line = "";  
             String splitBy = ",";  
             try   
@@ -86,10 +89,9 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
             while ((line = br.readLine()) != null) 
             {  
             String[] var = line.split(splitBy);    // use comma as separator  
-            week = Integer.parseInt(var[0]);
-            best_baker_result = var[1];
-            baker_to_leave_result = var[2];
-            technical_winner_result = var[3];
+            bbr = var[1];
+            blr = var[2];
+            twr = var[3];
             }  
             }   
             catch (IOException e) {  
@@ -99,8 +101,8 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
 
 
             weeks_1_to_9_results w19r = new weeks_1_to_9_results(); 
-            int week1r = w19r.points;
-            System.out.println("Your final points are " + week1r);
+           // int week1r = w19r.points;
+            System.out.println("Your final points are " + w19r.technical_winner_points(twr));
 
     }
 }
