@@ -101,7 +101,6 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
 
 
             weeks_1_to_9_results w19r = new weeks_1_to_9_results(); 
-           // int week1r = w19r.points;
             System.out.println("Your final points are " + w19r.technical_winner_points(twr));
 
     }
