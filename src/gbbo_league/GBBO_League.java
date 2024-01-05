@@ -4,12 +4,13 @@
  */
 package gbbo_league;
 
+import java.io.BufferedReader;
 import java.util.Scanner;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -17,74 +18,88 @@ import java.util.logging.Logger;
  */
 public class GBBO_League {
     
-
-        public static void main(String[] args) {
+        public static void main(String[] args) throws FileNotFoundException {
               
-        int points = 0;
-       
 get_user_input obj = new get_user_input();
-String player_name = obj.askUser("Introduce your name");
-int week = obj.askInt("Introduce the game's week");
-String best_baker_nomination = obj.askUser("Nominate Best Baker");
-String baker_to_leave_nomination = obj.askUser("Nominate Baker to Leave");
-String technical_winner_nomination = obj.askUser("Nominate winner of the technical round");
-String final_winner_first_nomination = obj.askUser("Nominate winner of the final episode");
-String final_winner_second_nomination = obj.askUser("Nominate winner of the final episode");
-String finalist1_nomination = obj.askUser("Nominate one finalist who does not win the final episode");
-String finalist2_nomination = obj.askUser("Nominate another finalist who does not win the final episode");
-
-
-//include validation if we are between week 1-9
-weeks_1_to_9_nominations player1_w19n = new weeks_1_to_9_nominations(player_name, week, best_baker_nomination, baker_to_leave_nomination, technical_winner_nomination);
-weeks_1_to_9_nominations player1_w2n = new weeks_1_to_9_nominations(player_name, final_winner_first_nomination, finalist1_nomination, finalist2_nomination);
-week_10_nominations player1_w10n = new week_10_nominations(player_name, final_winner_second_nomination);
-
+String best_baker_nomination = null;
+String baker_to_leave_nomination = null;
+String technical_winner_nomination = null;
+String final_winner_first_nomination;
+String finalist1_nomination;
+String finalist2_nomination;
+String final_winner_second_nomination;
+String best_baker_result = null; 
+String baker_to_leave_result = null;
+String technical_winner_result = null;
 String nominations;
 
+
+
+String player_name = obj.askUser("Introduce your name");
+int week = obj.askInt("Introduce the game's week");
 if ((week == 1) || (week == 3) || (week == 4) || (week == 5) || (week == 6) || (week == 7) || (week == 8) || (week == 9)) {
+best_baker_nomination = obj.askUser("Nominate Best Baker");
+baker_to_leave_nomination = obj.askUser("Nominate Baker to Leave");
+technical_winner_nomination = obj.askUser("Nominate winner of the technical round");
 nominations = (player_name+","+week+","+best_baker_nomination+","+baker_to_leave_nomination+","+technical_winner_nomination);
 } else if (week == 2) {
-nominations = (player_name+","+week+","+""+","+""+","+""+final_winner_first_nomination+","+finalist1_nomination+","+finalist2_nomination);
+best_baker_nomination = obj.askUser("Nominate Best Baker");
+baker_to_leave_nomination = obj.askUser("Nominate Baker to Leave");
+technical_winner_nomination = obj.askUser("Nominate winner of the technical round");
+final_winner_first_nomination = obj.askUser("Nominate winner of the final episode");
+finalist1_nomination = obj.askUser("Nominate one finalist who does not win the final episode");
+finalist2_nomination = obj.askUser("Nominate another finalist who does not win the final episode");
+nominations = (player_name+","+week+","+best_baker_nomination+","+baker_to_leave_nomination+","+technical_winner_nomination+","+final_winner_first_nomination+","+finalist1_nomination+","+finalist2_nomination);
 } else {
-nominations = (player_name+","+week+","+""+","+""+","+""+final_winner_first_nomination+","+finalist1_nomination+","+finalist2_nomination+","+final_winner_second_nomination);
+final_winner_second_nomination = obj.askUser("Nominate winner of the final episode");
+nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+","+final_winner_second_nomination);
 }
 
-// create system to read results every week (one per week) and append points to the csv file
-/* try {
-            Scanner readAdvancedTrades = new Scanner(new FileReader("trades2.txt"));
-            String readCommaTrades = readAdvancedTrades.nextLine();
+/*
+        create system to read files for other weeks
+        create a system to append points to the csv file
+        menu: a player should be able to see a list of all the players and their cumulative point total so far. 
+        a player should be able to see their own history of predictions and point scoring.
+        Players options:
+        - Select week
+        - Enter weekly prediction (before Tuesday)  
 */
+
+            //write nominations in CSV
             try {
-            BufferedWriter createCSV = new BufferedWriter(new FileWriter("Fantasy GBBO.csv", false));
+            BufferedWriter createCSV = new BufferedWriter(new FileWriter("Fantasy GBBO.csv", true));
+            createCSV.newLine();
             createCSV.write(nominations);
             createCSV.close();
             } catch (IOException ex) {
             System.out.println(ex);
-            System.out.println("The .csv file may not be accessible");
+            System.out.println("The nominations file may not be accessible");
             }
+            
+            //Read CSV with results
+            String line = "";  
+            String splitBy = ",";  
+            try   
+            {  
+            //parsing a CSV file into BufferedReader class constructor  
+            BufferedReader br = new BufferedReader(new FileReader("week1.csv"));  
+            while ((line = br.readLine()) != null) 
+            {  
+            String[] var = line.split(splitBy);    // use comma as separator  
+            week = Integer.parseInt(var[0]);
+            best_baker_result = var[1];
+            baker_to_leave_result = var[2];
+            technical_winner_result = var[3];
+            }  
+            }   
+            catch (IOException e) {  
+            System.out.println(e);
+            System.out.println("The results file may not be accessible");
+            }  
 
-System.out.println("Your final points are " + points);
-
-//menu: a player should be able to see a list of all the players and their cumulative point total so far. 
-//a player should be able to see their own history of predictions and point scoring.
+            weeks_1_to_9_results w19r = new weeks_1_to_9_results(week, best_baker_result, baker_to_leave_result, technical_winner_result); 
+            int week1r = w19r.points;
+            System.out.println("Your final points are " + week1r);
 
     }
 }
-        
-
-/*  Based on points. Each week, players choose three contestants - their fantasy team
-Data and history stored in csv “Fantasy GBBO.csv”
-        Players each week enter their predictions, actual results provided in csv file each week (player info and contest info)
-        26 Sept, 3, 10, 17, 24, 31 Oct, 7, 14, 21, 28 Nov (2 episodes)
-        Players options:
-        - Select week
-        - Enter weekly prediction (before Tuesday)
-
-      
-
-*/      
-
-       
-
-    
-

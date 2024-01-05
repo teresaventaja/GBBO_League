@@ -9,7 +9,6 @@ package gbbo_league;
  * @author User
  */
 public class week_10_results {
-    String player_name;
     int week;
     String finalist1_nomination;
     String finalist2_nomination;
@@ -21,18 +20,16 @@ public class week_10_results {
     
     
     //constructor for week 10 results
-        public week_10_results(String player_name, String final_winner_result) {
+        public week_10_results(String final_winner_result) {
         
-        this.player_name = player_name; 
         week = 10;     
         this.final_winner_result = final_winner_result;
 
     }
         
         //constructor for week 2 results
-        public week_10_results(String player_name, String final_winner_result, String finalist1_result, String finalist2_result) {
+        public week_10_results(String final_winner_result, String finalist1_result, String finalist2_result) {
         
-        this.player_name = player_name; 
         week = 2;  
         this.final_winner_result = final_winner_result;
         this.finalist1_result = finalist1_result;
