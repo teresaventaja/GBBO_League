@@ -97,7 +97,8 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
             System.out.println("The results file may not be accessible");
             }  
 
-            weeks_1_to_9_results w19r = new weeks_1_to_9_results(week, best_baker_result, baker_to_leave_result, technical_winner_result); 
+
+            weeks_1_to_9_results w19r = new weeks_1_to_9_results(); 
             int week1r = w19r.points;
             System.out.println("Your final points are " + week1r);
 

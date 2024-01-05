@@ -10,7 +10,6 @@ package gbbo_league;
  */
 public class weeks_1_to_9_nominations {
 
-    String player_name;
     int week;
     String best_baker_nomination;
     String baker_to_leave_nomination;
@@ -21,18 +20,16 @@ public class weeks_1_to_9_nominations {
     
     
     //constructor for weekly nominations, for weeks 1-9
-        public weeks_1_to_9_nominations(String player_name, int week, String best_baker_nomination, String baker_to_leave_nomination, String technical_winner_nomination) {
+        public weeks_1_to_9_nominations(int week, String best_baker_nomination, String baker_to_leave_nomination, String technical_winner_nomination) {
         
-        this.player_name = player_name; 
         this.week = week; 
         this.best_baker_nomination = best_baker_nomination;
         this.baker_to_leave_nomination = baker_to_leave_nomination;
         this.technical_winner_nomination = technical_winner_nomination;
     }
         //constructor for week 2
-        public weeks_1_to_9_nominations(String player_name, String final_winner_first_nomination, String finalist1_nomination, String finalist2_nomination) {
+        public weeks_1_to_9_nominations(String final_winner_first_nomination, String finalist1_nomination, String finalist2_nomination) {
         
-        this.player_name = player_name; 
         week = 2;  
         this.final_winner_first_nomination = final_winner_first_nomination;
         this.finalist1_nomination = finalist1_nomination;

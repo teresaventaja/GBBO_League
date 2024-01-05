@@ -19,7 +19,7 @@ public class weeks_1_to_9_results {
     String technical_winner_nomination;
     
     //constructor for weekly results, for weeks 1-9
-    
+    /*
     public weeks_1_to_9_results(int week, String best_baker_result, String baker_to_leave_result, String technical_winner_result) {   
 
         this.week = week;
@@ -27,7 +27,7 @@ public class weeks_1_to_9_results {
         this.baker_to_leave_result = baker_to_leave_result;
         this.technical_winner_result = technical_winner_result;
         }
-    
+    */
     public int points;
     
         public boolean check_best_baker(String best_baker_result) {
