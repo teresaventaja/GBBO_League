@@ -21,6 +21,8 @@ public class GBBO_League {
         public static void main(String[] args) throws FileNotFoundException {
               
 get_user_input obj = new get_user_input();
+String player_name;
+int total_points = 0;
 String best_baker_nomination = null;
 String baker_to_leave_nomination = null;
 String technical_winner_nomination = null;
@@ -37,7 +39,7 @@ String splitBy = ",";
 
 
 
-String player_name = obj.askUser("Introduce your name");
+player_name = obj.askUser("Introduce your name");
 int week = obj.askInt("Introduce the game's week");
 if ((week == 1) || (week == 3) || (week == 4) || (week == 5) || (week == 6) || (week == 7) || (week == 8) || (week == 9)) {
 best_baker_nomination = obj.askUser("Nominate Best Baker");
@@ -58,19 +60,16 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
 }
 
 /*
-        a player should be able to see their own history of predictions and point scoring.
+To do:
+
+1. Fix player_points calculations
+2. Create menu: a player should be able to see their own history of predictions and point scoring.
         Players options:
         - Select week
         - Enter weekly prediction (before Tuesday)
         - View my comulative points
         - View list of all the players and their cumulative point total so far
 
-
-loop all rows (while row not null)
-Find index of points, store in variable
-if player name = whatever - += points
-
-for (player name = player name, while loop all rows, +=points?)
 */
 
             //write nominations in CSV
@@ -112,5 +111,8 @@ for (player name = player name, while loop all rows, +=points?)
             System.out.println("Points may not have been recorded");
             }
             
+            player_points points_test = new player_points(player_name, total_points);
+            int totalPoints = points_test.total_points();
+            System.out.println("This player total points: " + totalPoints);
     }
 }
