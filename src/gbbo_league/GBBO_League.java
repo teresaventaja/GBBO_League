@@ -58,12 +58,19 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
 }
 
 /*
-        create system to read files for other weeks
-        menu: a player should be able to see a list of all the players and their cumulative point total so far. 
         a player should be able to see their own history of predictions and point scoring.
         Players options:
         - Select week
-        - Enter weekly prediction (before Tuesday)  
+        - Enter weekly prediction (before Tuesday)
+        - View my comulative points
+        - View list of all the players and their cumulative point total so far
+
+
+loop all rows (while row not null)
+Find index of points, store in variable
+if player name = whatever - += points
+
+for (player name = player name, while loop all rows, +=points?)
 */
 
             //write nominations in CSV
@@ -93,13 +100,13 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
             System.out.println("The results file may not have been provided yet");
             }  
 
-            weeks_1_to_9_results w1r = new weeks_1_to_9_results(); 
-            int weekPoints = w1r.technical_winner_points(technical_winner_result);
-            nominations = (""+","+""+","+""+","+""+","+""+","+""+","+""+","+""+","+""+","+weekPoints);
+            weeks_1_to_9_results w1r = new weeks_1_to_9_results(best_baker_nomination, baker_to_leave_nomination, technical_winner_nomination, best_baker_result, baker_to_leave_result, technical_winner_result); 
+            int weekPoints = w1r.sum_points();
             
+            //write points won
             try {
             BufferedWriter createCSV2 = new BufferedWriter(new FileWriter("Fantasy GBBO.csv", true));
-            createCSV2.write(nominations);
+            createCSV2.write(weekPoints);
             createCSV2.close();
             } catch (IOException ex) {
             System.out.println("Points may not have been recorded");
