@@ -32,9 +32,8 @@ String best_baker_result = null;
 String baker_to_leave_result = null;
 String technical_winner_result = null;
 String nominations;
- String           bbr = null;
-       String     blr= null;
-        String    twr = null;
+String line = "";  
+String splitBy = ",";  
 
 
 
@@ -44,7 +43,7 @@ if ((week == 1) || (week == 3) || (week == 4) || (week == 5) || (week == 6) || (
 best_baker_nomination = obj.askUser("Nominate Best Baker");
 baker_to_leave_nomination = obj.askUser("Nominate Baker to Leave");
 technical_winner_nomination = obj.askUser("Nominate winner of the technical round");
-nominations = (player_name+","+week+","+best_baker_nomination+","+baker_to_leave_nomination+","+technical_winner_nomination);
+nominations = (player_name+","+week+","+best_baker_nomination+","+baker_to_leave_nomination+","+technical_winner_nomination+","+""+","+""+","+""+","+""+","+"");
 } else if (week == 2) {
 best_baker_nomination = obj.askUser("Nominate Best Baker");
 baker_to_leave_nomination = obj.askUser("Nominate Baker to Leave");
@@ -52,15 +51,14 @@ technical_winner_nomination = obj.askUser("Nominate winner of the technical roun
 final_winner_first_nomination = obj.askUser("Nominate winner of the final episode");
 finalist1_nomination = obj.askUser("Nominate one finalist who does not win the final episode");
 finalist2_nomination = obj.askUser("Nominate another finalist who does not win the final episode");
-nominations = (player_name+","+week+","+best_baker_nomination+","+baker_to_leave_nomination+","+technical_winner_nomination+","+final_winner_first_nomination+","+finalist1_nomination+","+finalist2_nomination);
+nominations = (player_name+","+week+","+best_baker_nomination+","+baker_to_leave_nomination+","+technical_winner_nomination+","+final_winner_first_nomination+","+finalist1_nomination+","+finalist2_nomination+","+""+","+"");
 } else {
 final_winner_second_nomination = obj.askUser("Nominate winner of the final episode");
-nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+","+final_winner_second_nomination);
+nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+","+final_winner_second_nomination+","+"");
 }
 
 /*
         create system to read files for other weeks
-        create a system to append points to the csv file
         menu: a player should be able to see a list of all the players and their cumulative point total so far. 
         a player should be able to see their own history of predictions and point scoring.
         Players options:
@@ -75,13 +73,10 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
             createCSV.write(nominations);
             createCSV.close();
             } catch (IOException ex) {
-            System.out.println(ex);
             System.out.println("The nominations file may not be accessible");
             }
             
-            //Read file with results
-            String line = "";  
-            String splitBy = ",";  
+            //Read file with results (week 1)
             try   
             {  
             //parsing a CSV file into BufferedReader class constructor  
@@ -89,19 +84,26 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
             while ((line = br.readLine()) != null) 
             {  
             String[] var = line.split(splitBy);    // use comma as separator  
-            bbr = var[1];
-            blr = var[2];
-            twr = var[3];
+            best_baker_result = var[1];
+            baker_to_leave_result = var[2];
+            technical_winner_result = var[3];
             }  
             }   
             catch (IOException e) {  
-            System.out.println(e);
-            System.out.println("The results file may not be accessible");
+            System.out.println("The results file may not have been provided yet");
             }  
 
-
-            weeks_1_to_9_results w19r = new weeks_1_to_9_results(); 
-            System.out.println("Your final points are " + w19r.technical_winner_points(twr));
-
+            weeks_1_to_9_results w1r = new weeks_1_to_9_results(); 
+            int weekPoints = w1r.technical_winner_points(technical_winner_result);
+            nominations = (""+","+""+","+""+","+""+","+""+","+""+","+""+","+""+","+""+","+weekPoints);
+            
+            try {
+            BufferedWriter createCSV2 = new BufferedWriter(new FileWriter("Fantasy GBBO.csv", true));
+            createCSV2.write(nominations);
+            createCSV2.close();
+            } catch (IOException ex) {
+            System.out.println("Points may not have been recorded");
+            }
+            
     }
 }
