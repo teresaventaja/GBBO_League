@@ -39,7 +39,7 @@ int total_points;
     try   
     {  
     BufferedReader br = new BufferedReader(new FileReader("Fantasy GBBO.csv"));  
-    while ( ((line = br.readLine()) != null) && player_name.equals("Tere")) //find a match in the file for the same name
+    while ( ((line = br.readLine()) != null) && player_name.equals("Tere")) //find a match in the file that name (assuming this is a participant name)
     {  
     String[] var = line.split(splitBy);    // use comma as separator  
     points = Integer.parseInt(var[9]);
