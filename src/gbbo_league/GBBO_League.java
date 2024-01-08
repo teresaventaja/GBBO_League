@@ -60,7 +60,7 @@ nominations = (player_name+","+week+","+""+","+""+","+""+","+""+","+""+","+""+",
 }
 
 /*
-To do:
+Non-completed:
 
 1. Fix player_points calculations
 2. Create menu: a player should be able to see their own history of predictions and point scoring.
@@ -111,8 +111,13 @@ To do:
             System.out.println("Points may not have been recorded");
             }
             
+            /*
+            
+            Couldn't resolve the errors in the code
+            
             player_points points_test = new player_points(player_name, total_points);
             int totalPoints = points_test.total_points();
             System.out.println("This player total points: " + totalPoints);
+            */
     }
 }
